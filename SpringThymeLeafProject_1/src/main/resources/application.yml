@@ -5,7 +5,7 @@ spring:
   thymeleaf:
    cache: false
    encoding: UTF-8
-   prefix: classpath:/templates/
+   prefix: classpath:templates/
    suffix: .html
    mode: HTML
   datasource:
@@ -15,7 +15,7 @@ spring:
    driver-class-name: oracle.jdbc.driver.OracleDriver
   jpa:
     database: oracle
-    propertise:
+    properties:
       hibernate:
         dialect: org.hibernate.dialect.OracleDialect
         format_sql: true
@@ -25,7 +25,7 @@ mybatis:
   mapper-locations: mybatis/mapper/*.xml
 logging:
   level:
-    org.hibernate.SQL: DEUBG
+    org.hibernate.SQL: DEBUG
     org.hibernate.orm.jdbc.bind: TRACE
 # ThymeLeaf
 # JSP
