@@ -3,6 +3,8 @@ package com.sist.web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -34,5 +36,28 @@ public class BoardController {
 	   model.addAttribute("totalpage", totalpage);
 	   return "board/list";
    }
-   
+   @GetMapping("detail")
+   public String board_detail(@RequestParam("no") int no,
+		   Model model)
+   {
+	   BoardEntity vo=bService.findByNo(no);
+	   vo.setHit(vo.getHit()+1);
+	   bService.boardUpdate(vo);
+	   
+	   vo=bService.findByNo(no);
+	   model.addAttribute("vo", vo);
+	   return "board/detail";
+   }
+   @GetMapping("insert")
+   public String board_insert()
+   {
+	   return "board/insert";
+   }
+   @PostMapping("insert_ok")
+
+   public String board_insert_ok(@ModelAttribute("vo") BoardEntity vo)
+   {
+	   bService.boardInsert(vo);
+	   return "redirect:/board/list";
+   }
 }
