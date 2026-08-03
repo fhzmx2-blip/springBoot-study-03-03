@@ -2,8 +2,8 @@ package com.sist.web.vo;
 
 public interface BoardDTO {
 	public int getNo();
-	public int getName();
-	public int getSubject();
-	public int getDbday();
+	public String getName();
+	public String getSubject();
+	public String getDbday();
 	public int getHit();
 }

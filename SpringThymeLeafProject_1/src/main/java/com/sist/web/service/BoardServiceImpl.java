@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import com.sist.web.entity.*;
 import com.sist.web.repository.*;
-import com.sist.web.vo.*;
+import com.sist.web.vo.BoardDTO;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BoardServiceImpl implements BoardService{
    private final BoardRepository dao;
-   private final BoardDTO dto;
 
    @Override
    public BoardEntity findByNo(int no) {
